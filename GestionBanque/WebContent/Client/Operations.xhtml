@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<f:metadata>
+		<f:event listener="#{Auth.isLoggedIn()}" type="preRenderView"/>
+		<f:event listener="#{ClGest.getAllOperas() }" type="preRenderView"/>
+		<f:event listener="#{Auth.langChanger()}" type="preRenderView"/>
+		</f:metadata>
+    <link rel="stylesheet" href="http://127.0.0.1/Bootstrap/CssScripts/css/bootstrap.css" />
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Home Page</title>
+</h:head>
+<h:body>
+
+
+<nav class="navbar navbar-expand-lg  navbar-primary  bg-danger">
+  <a class="navbar-brand text-white" href="http://localhost:8080/GestionBanque/faces/Home.xhtml">
+  <h:outputText value="#{Auth.u.getUserName()}"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="http://localhost:8080/GestionBanque/faces/Home.xhtml"><h:outputText value="#{msg['L0007']}"/> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="http://localhost:8080/GestionBanque/faces/Client/CreDeb.xhtml"> 
+        <h:outputText value=" #{msg['L0021']} -"/> <h:outputText value=" #{msg['L0020']}"/>
+        </a>
+      </li>
+      
+      
+   <li class="nav-item">
+      <h:form>
+          <h:commandLink action="#{ClGest.getAllOperas()}" class="nav-link text-white text-right" value=" #{msg['L0026']} "/>
+      </h:form>
+            </li>
+      
+      <li class="nav-item">
+        <a class="nav-link text-white" href="http://localhost:8080/GestionBanque/faces/Client/Profile.xhtml" > Profile</a>
+      </li>
+          <li class="nav-item">
+          <h:form>
+          <h:commandLink action="#{Auth.logout()}" class="nav-link text-white text-right" value="- #{msg['L0010']} "/>
+      </h:form>
+      </li>
+    
+    </ul>
+   <span class="navbar-text">
+   <h:form>
+           <h:commandButton value="FR" class="btn btn-danger mr-2 " action="#{Auth.langCheck('fr')}"/>
+      <h:commandButton value="EN" class="btn btn-danger" action="#{Auth.langCheck('en')}"/>
+    </h:form>
+    </span>
+  </div>
+</nav>
+
+
+<f:view>
+<div class="container col-6 mt-5">
+<h2 class="text-center text-danger"> <h:outputText value=" #{msg['L0026']} "/> </h2>
+
+
+<div class="col-12">
+
+<h:dataTable var="myList" value="#{ClGest.op}" cellspacing="100" cellpadding="20">
+            <h:column >
+                <f:facet  name="header"><h:outputText value=" #{msg['L0016']} "/> ID </f:facet>
+                <h:outputText value="#{myList.compteID}"/>
+                </h:column>
+                <h:column >
+                <f:facet name="header"><h:outputText value=" #{msg['L0017']}"/></f:facet>
+                <h:outputText value="#{myList.sold}"/>
+                </h:column>
+                <h:column>
+                <f:facet name="header">Operation </f:facet>
+                <h:outputText value="#{myList.operationType}"/>
+                </h:column>
+        </h:dataTable>
+</div>
+</div>
+</f:view>
+
+
+<script src="http://127.0.0.1/Bootstrap/CssScripts/CssScripts/jquery-3.3.1.js" ></script>
+<script src="http://127.0.0.1/Bootstrap/CssScripts/CssScripts/js/bootstrap.js" ></script>
+
+</h:body>
+</html>

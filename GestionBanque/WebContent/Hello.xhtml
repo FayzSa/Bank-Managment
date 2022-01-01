@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+<f:metadata>	
+		<f:event listener="#{Auth.isLoggedIn()}" type="preRenderView"/>
+		<f:event listener="#{Auth.langChanger()}" type="preRenderView"/>		
+</f:metadata>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link rel="stylesheet" href="http://127.0.0.1/Bootstrap/CssScripts/css/bootstrap.css" />
+<title>Auth</title>
+</h:head>
+<h:body>
+<div class="container col-6 mt-5">
+    <span class="text-center">
+   <h:form>
+      <h:commandButton value="FR" class="btn btn-danger mr-2 " action="#{Auth.langCheck('fr')}"/>
+      <h:commandButton value="EN" class="btn btn-danger" action="#{Auth.langCheck('en')}"/>
+    </h:form>
+    </span>
+<h3 class="text-center">Authentification</h3>
+
+
+<f:view>
+<h:form>
+ <div class="form-group">
+  <label>#{msg['L0015']}</label>
+ <h:inputText value="#{Auth.userName}" class="form-control"/>
+    </div>
+
+ <div class="form-group">
+  <label>#{msg['L0002']}</label>
+ <h:inputSecret value="#{Auth.password}" class="form-control"/>
+    </div>
+<h:commandButton value="#{msg['L0001']}" class="btn btn-danger col-12" action="#{Auth.login}"/>
+
+
+</h:form>
+
+<h:outputText value="#{Auth.msg }" class="mt-4 text-danger text-center"/>
+
+</f:view>
+
+</div>
+<script src="http://127.0.0.1/Bootstrap/CssScripts/CssScripts/jquery-3.3.1.js" ></script>
+<script src="http://127.0.0.1/Bootstrap/CssScripts/CssScripts/js/bootstrap.js" ></script>
+</h:body>
+</html>

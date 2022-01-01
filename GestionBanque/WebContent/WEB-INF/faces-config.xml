@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+	<navigation-rule>
+		<from-view-id>/Hello.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Client</from-outcome>
+			<to-view-id>/Home.xhtml</to-view-id>
+		</navigation-case>
+		
+	<navigation-case>
+			<from-outcome>null</from-outcome>
+			<to-view-id>/Hello.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Hello.xhtml</display-name>
+		<from-view-id>/Hello.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Operateur</from-outcome>
+			<to-view-id>/HomeOperateur.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Home.xhtml</display-name>
+		<from-view-id>/Home.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Operations</from-outcome>
+			<to-view-id>/Client/Operations.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Client/CreDeb.xhtml</display-name>
+		<from-view-id>/Client/CreDeb.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Operations</from-outcome>
+			<to-view-id>/Client/Operations.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Client/Profile.xhtml</display-name>
+		<from-view-id>/Client/Profile.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Operations</from-outcome>
+			<to-view-id>/Client/Operations.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Operateur/Clients.xhtml</display-name>
+		<from-view-id>/Operateur/Clients.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Exist</from-outcome>
+			<to-view-id>/Operateur/EditClient.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Operateur/Clients.xhtml</display-name>
+		<from-view-id>/Operateur/Clients.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Not</from-outcome>
+			<to-view-id>/Operateur/Clients.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+<application>
+   <locale-config>
+      <default-locale>en</default-locale>
+      <supported-locale>fr</supported-locale>
+   </locale-config>
+   
+   <resource-bundle>
+      <base-name>estm.jee.presentation.messages</base-name>
+      <var>msg</var>
+   </resource-bundle>
+</application>
+
+</faces-config>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15785893316023" configfile="/GestionBanque/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Hello.xhtml" x="72" y="132" id="pf157859097084732" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf157860270454838 pf157860645912946 pf157860645912947" inlinks="pf157860645912947" path="/Hello.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="HomeOperateur.xhtml" x="276" y="240" id="pf157860270454939" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf157860270454838" path="/HomeOperateur.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Home.xhtml" x="192" y="24" id="pf157860645912948" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf157869075486749" inlinks="pf157860645912946" path="/Home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Client/Operations.xhtml" x="384" y="36" id="pf157869075486750" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf157869075486749 pf157869075486751 pf157869093490753" path="/Client/Operations.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Client/CreDeb.xhtml" x="646" y="112" id="pf157869075486752" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf157869075486751" path="/Client/CreDeb.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Client/Profile.xhtml" x="450" y="169" id="pf157869093490754" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf157869093490753" path="/Client/Profile.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Operateur/EditClient.xhtml" x="480" y="264" id="pf157875899790762" inlinks="pf157875899790863" path="/Operateur/EditClient.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Operateur/Clients.xhtml" x="708" y="234" id="pf157875899790864" outlinks="pf157875899790863 pf157875899790865" inlinks="pf157875899790865" path="/Operateur/Clients.xhtml"/>
+  <links id="pf157860270454838" target="pf157860270454939" source="pf157859097084732" outcome="Operateur"/>
+  <links id="pf157860645912946" target="pf157860645912948" source="pf157859097084732"/>
+  <links id="pf157860645912947" target="pf157859097084732" source="pf157859097084732"/>
+  <links id="pf157869075486749" target="pf157869075486750" source="pf157860645912948" outcome="Operations"/>
+  <links id="pf157869075486751" target="pf157869075486750" source="pf157869075486752" outcome="Operations"/>
+  <links id="pf157869093490753" target="pf157869075486750" source="pf157869093490754" outcome="Operations"/>
+  <links id="pf157875899790863" target="pf157875899790762" source="pf157875899790864" outcome="Exist"/>
+  <links id="pf157875899790865" target="pf157875899790864" source="pf157875899790864" outcome="Not">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>
